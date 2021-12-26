@@ -8,14 +8,22 @@ import {Component} from '@angular/core';
         <h1 [style.color]="blueColor?'blue':'orange'">Apply style</h1>
         <button (click)="OnClick(name.value)">Click me</button>
         <input type="text" #name />
-        <br>
-       
+        <br>  
         <input type="text" [(ngModel)]='fname'>
         <input type="text" [(ngModel)]="lname">                  
         <br>
-
         FullName: {{fname}} {{lname}} 
-     
+        <h3 *ngIf="showLineIf">This is ngIf directive line</h3>
+        <div [ngSwitch]="color">
+            <p *ngSwitchCase="'red'">This line color is red</p>
+            <p *ngSwitchCase="'blue'">This line color is blue</p>
+            <p *ngSwitchCase="'green'">This line color is green</p>
+            <p *ngSwitchDefault>Invalid color</p>            
+        </div>
+        <ul>
+            <li *ngFor="let color of colors">{{color}}</li>
+        </ul>
+
     `,
     styles:['.redColor {color:red}']
 })
@@ -33,4 +41,10 @@ export class TutorialComponent{
     myModel: string="";
     fname:string="";
     lname:any;
+
+    showLineIf=false;
+
+    color="blue";
+
+    colors:string[]=["red","green","blue"];
 }
