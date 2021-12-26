@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TutorialComponent } from './tutorial.component';
 import {FormsModule} from '@angular/forms'
+import {ExponentialStrengthPipe} from './exponential-strength.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TutorialComponent
+    TutorialComponent,
+    ExponentialStrengthPipe
   ],
   imports: [
     BrowserModule,
