@@ -8,6 +8,14 @@ import {Component} from '@angular/core';
         <h1 [style.color]="blueColor?'blue':'orange'">Apply style</h1>
         <button (click)="OnClick(name.value)">Click me</button>
         <input type="text" #name />
+        <br>
+       
+        <input type="text" [(ngModel)]='fname'>
+        <input type="text" [(ngModel)]="lname">                  
+        <br>
+
+        FullName: {{fname}} {{lname}} 
+     
     `,
     styles:['.redColor {color:red}']
 })
@@ -16,8 +24,13 @@ export class TutorialComponent{
     public applyClass=true;
     blueColor=true;
      
+    value:string="";
+
     OnClick(value){
         console.log(value);
     }
 
+    myModel: string="";
+    fname:string="";
+    lname:any;
 }
