@@ -1,68 +1,29 @@
-import {Component} from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'my-tutorial',
-    template: `<h2>This is Tedu Angular 2 tutorial</h2>
-        <h4>Angular Component</h4>
-        <h3 [class.redColor]="applyClass">Apply class</h3>
-        <h1 [style.color]="blueColor?'blue':'orange'">Apply style</h1>
-        <button (click)="OnClick(name.value)">Click me</button>
-        <input type="text" #name />
-        <br>  
-        <input type="text" [(ngModel)]='fname'>
-        <input type="text" [(ngModel)]="lname">                  
-        <br>
-        FullName: {{fname}} {{lname}} 
-        <h3 *ngIf="showLineIf">This is ngIf directive line</h3>
-        <div [ngSwitch]="color">
-            <p *ngSwitchCase="'red'">This line color is red</p>
-            <p *ngSwitchCase="'blue'">This line color is blue</p>
-            <p *ngSwitchCase="'green'">This line color is green</p>
-            <p *ngSwitchDefault>Invalid color</p>            
-        </div>
-        <ul>
-            <li *ngFor="let color of colors">{{color}}</li>
-        </ul>
-        <p [ngClass]="{classOne:cone,classTwo:ctwo}">This ngClass apply style</p>
-        <button (click)="Toggle()">Toggle</button>
-        <p [ngStyle]="{'font-style':style,'font-size':size}">This line apply ngStyle</p>
-    `,  
-    styles:[
-        `.redColor {color:red}
-          .classOne{color:yellow;}
-          .classTwo{background-color:blue;}
-        `
-        
-    ]
+    template: `
+    <p>Child component: {{name}}</p>
+    <button [disabled]="voted" (click)="vote(true)">Agree</button>
+    <button [disabled]="voted" (click)="vote(false)">Disgree</button>
+    Result: {{voted}}
+    `
 })
 
-export class TutorialComponent{
-    public applyClass=true;
-    blueColor=true;
-     
-    value:string="";
+export class TutorialComponent {
+    @Input() name: string;
+    @Output() onVote = new EventEmitter<boolean>();
+    voted: boolean = false;
 
-    OnClick(value){
-        console.log(value);
+    //agree là kết quả xuất ra
+    vote(agree: boolean) {
+        //this.voted là cờ thôi
+        this.voted = true;
+        //emit là xuất ra
+        this.onVote.emit(agree);
     }
 
-    myModel: string="";
-    fname:string="";
-    lname:any;
-
-    showLineIf=false;
-
-    color="blue";
-
-    colors:string[]=["red","green","blue"];
-
-    cone=true;
-    ctwo=false;
-
-    Toggle(){
-        this.cone=!this.cone;
-        this.ctwo=!this.ctwo;
+    setName(name:string){
+        this.name=name;
     }
-    style="italic";
-    size="30px";
 }
