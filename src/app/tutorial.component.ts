@@ -23,9 +23,17 @@ import {Component} from '@angular/core';
         <ul>
             <li *ngFor="let color of colors">{{color}}</li>
         </ul>
-
-    `,
-    styles:['.redColor {color:red}']
+        <p [ngClass]="{classOne:cone,classTwo:ctwo}">This ngClass apply style</p>
+        <button (click)="Toggle()">Toggle</button>
+        <p [ngStyle]="{'font-style':style,'font-size':size}">This line apply ngStyle</p>
+    `,  
+    styles:[
+        `.redColor {color:red}
+          .classOne{color:yellow;}
+          .classTwo{background-color:blue;}
+        `
+        
+    ]
 })
 
 export class TutorialComponent{
@@ -47,4 +55,14 @@ export class TutorialComponent{
     color="blue";
 
     colors:string[]=["red","green","blue"];
+
+    cone=true;
+    ctwo=false;
+
+    Toggle(){
+        this.cone=!this.cone;
+        this.ctwo=!this.ctwo;
+    }
+    style="italic";
+    size="30px";
 }
