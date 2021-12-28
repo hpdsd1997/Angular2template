@@ -9,11 +9,13 @@ import { HomeComponent } from './home.component';
 import { EmployeeService } from './service/employee.service';
 import { HttpClientModule } from '@angular/common/http';
 import { appRoutes } from './app.route';
+import { NotFoundComponent } from './notfound.component';
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeListComponent,
-    HomeComponent
+    HomeComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
