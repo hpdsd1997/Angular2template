@@ -10,6 +10,12 @@ export class EmployeeService {
     }
     GetList(): Observable<any[]> {
         return this._http.get<any[]>(this.apiUrl);
+    }
+
+    
+    GetSingle(id:number): Observable<any[]> {
+       // const apiUrl_1=`${this.apiUrl}/${id}`;
+        return this._http.get<any>(this.apiUrl+'/'+id);
 
     }
 }

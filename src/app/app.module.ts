@@ -10,12 +10,14 @@ import { EmployeeService } from './service/employee.service';
 import { HttpClientModule } from '@angular/common/http';
 import { appRoutes } from './app.route';
 import { NotFoundComponent } from './notfound.component';
+import { EmployeeDetailComponent } from './employee-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeListComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    EmployeeDetailComponent
   ],
   imports: [
     BrowserModule,

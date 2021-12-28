@@ -13,6 +13,9 @@
             <td>{{employee.age}}</td>
             <td>{{employee.createdAt|date}}</td>
             <td>{{employee.status}}</td>
+            <td>
+                <a [routerLink]="['/employees-detail',employee.id]">chi tiết</a>
+            </td>
         </tr>
     </tbody>
 </table>
