@@ -1,17 +1,15 @@
 import { Injectable } from "@angular/core";
-
+import { HttpClient } from '@angular/common/http';
+import { Observable } from "rxjs/internal/Observable";
 @Injectable()
 export class EmployeeService {
-    GetList(): any[] {
-        let employees: any[] = [
-            { Id: 1, Name: "Nguyen Van A" },
-            { Id: 2, Name: "Nguyen Van B" },
-            { Id: 3, Name: "Nguyen Van C" },
-            { Id: 4, Name: "Nguyen Van D" },
-            { Id: 5, Name: "Nguyen Van E" },
-            { Id: 6, Name: "Nguyen Van F" },
-            { Id: 7, Name: "Nguyen Van G" }
-        ]
-        return employees;
-    };
+
+    private apiUrl = "https://61cafe76194ffe0017788ac5.mockapi.io/api/employees";
+    constructor(private _http: HttpClient) {
+
+    }
+    GetList(): Observable<any[]> {
+        return this._http.get<any[]>(this.apiUrl);
+
+    }
 }
