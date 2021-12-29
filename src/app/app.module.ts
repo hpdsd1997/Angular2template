@@ -11,13 +11,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { appRoutes } from './app.route';
 import { NotFoundComponent } from './notfound.component';
 import { EmployeeDetailComponent } from './employee-detail.component';
+import { EmployeeOverviewComponent } from './employee-overview.component';
+import { EmployeeProjectsComponent } from './employee-projects.component';
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeListComponent,
     HomeComponent,
     NotFoundComponent,
-    EmployeeDetailComponent
+    EmployeeDetailComponent,
+    EmployeeOverviewComponent,
+    EmployeeProjectsComponent
   ],
   imports: [
     BrowserModule,
