@@ -17,6 +17,8 @@ import { LoginComponent } from './login.component';
 import { LoginService } from './service/login.service';
 import { CheckLoginGuard } from './guards/check-login-guards';
 import { CheckSaveFormGuard } from './guards/check-save-form-guard';
+import { EmployeeEditComponent } from './employee-edit.component';
+import { EmployeeAddComponent } from './employee-add.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +28,9 @@ import { CheckSaveFormGuard } from './guards/check-save-form-guard';
     EmployeeDetailComponent,
     EmployeeOverviewComponent,
     EmployeeProjectsComponent,
-    LoginComponent
+    LoginComponent,
+    EmployeeEditComponent,
+    EmployeeAddComponent
   ],
   imports: [
     BrowserModule,

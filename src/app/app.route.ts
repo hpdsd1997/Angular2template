@@ -8,12 +8,17 @@ import { EmployeeProjectsComponent } from './employee-projects.component';
 import { LoginComponent } from "./login.component";
 import { CheckLoginGuard } from "./guards/check-login-guards";
 import { CheckSaveFormGuard } from './guards/check-save-form-guard';
+import { EmployeeEditComponent } from "./employee-edit.component";
+import { EmployeeAddComponent } from "./employee-add.component";
 const routing: Routes = [
     { path: '', component: HomeComponent },
     { path: 'employees', component: EmployeeListComponent, canActivate: [CheckLoginGuard] },
+    {path:'employees-edit/:id',component:EmployeeEditComponent},
+    {path:'employees-add',component:EmployeeAddComponent},
     { path: 'login', component: LoginComponent },
     {
-        path: 'employees-detail/:id', component: EmployeeDetailComponent,canDeactivate:[CheckSaveFormGuard]
+        path: 'employees-detail/:id', component: EmployeeDetailComponent
+        // ,canDeactivate:[CheckSaveFormGuard]
         , children: [
             { path: 'overview', component: EmployeeOverviewComponent },
             { path: 'projects', component: EmployeeProjectsComponent }

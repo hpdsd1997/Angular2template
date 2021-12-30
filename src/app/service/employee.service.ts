@@ -12,10 +12,25 @@ export class EmployeeService {
         return this._http.get<any[]>(this.apiUrl);
     }
 
-    
-    GetSingle(id:number): Observable<any[]> {
-       // const apiUrl_1=`${this.apiUrl}/${id}`;
-        return this._http.get<any>(this.apiUrl+'/'+id);
+    Search(keyword: string): Observable<any[]> {
+        return this._http.get<any[]>(this.apiUrl 
+            + "?search=" + keyword);
+    }
 
+    GetSingle(id: number): Observable<any[]> {
+        // const apiUrl_1=`${this.apiUrl}/${id}`;
+        return this._http.get<any>(this.apiUrl + '/' + id);
+
+    }
+
+    UpDate(id: number, data: any): Observable<any[]> {
+        return this._http.put<any>(this.apiUrl + '/' + id, data);
+    }
+
+    Add(data: any): Observable<any[]> {
+        return this._http.post<any>(this.apiUrl, data);
+    }
+    Delete(id: number): Observable<any[]> {
+        return this._http.delete<any>(this.apiUrl + '/' + id);
     }
 }
